@@ -13,3 +13,4 @@ The rules are simple: You have 20 slots in a List and you get 20 random Numbers,
     -   Mark available options
     -   block unavailable
 -   Game Reset
+-   Instructions / Manual on Page
