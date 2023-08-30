@@ -57,6 +57,7 @@ for (let i = 1; i <= 20; i++) {
 function placeOnField(id) {
 	let currentNum = GAME_STATE.generator.get();
 	GAME_STATE.fields[id].text.innerText = currentNum;
+	GAME_STATE.fields[id].value = currentNum;
 	GAME_STATE.fields[id].field.onclick = () => {};
 
 	GAME_STATE.generator.generate();
