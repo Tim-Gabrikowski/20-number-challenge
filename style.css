@@ -36,25 +36,6 @@ h2 {
 	margin-bottom: 20px;
 }
 
-button {
-	background-color: black;
-	color: white;
-	border: 1px solid white;
-	width: 100%;
-	padding: 10px;
-	margin-top: 10px;
-	transition: 250ms;
-}
-button:active {
-	background-color: white;
-	color: black;
-	border: 1px solid white;
-	width: 100%;
-	padding: 10px;
-	margin-top: 10px;
-	transition: 250ms;
-}
-
 #fields_cont {
 	width: calc(100%);
 	border-top: 1px solid white;
