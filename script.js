@@ -4,18 +4,17 @@ function elem(id) {
 
 let lostBox = elem("lose_box");
 let retryBtn = elem("retry_btn");
+let winBox = elem("win_box");
+let againBtn = elem("again_btn");
 
 retryBtn.onclick = () => {
 	initGame();
 };
+againBtn.onclick = () => {
+	initGame();
+};
 
 class NumberGenerator {
-	/**
-	 *
-	 * @param {number} min Smallest number to get
-	 * @param {number} max Biggest number to get
-	 * @param {string} did ID of the Display element
-	 */
 	constructor(min, max, did) {
 		this.display = elem(did);
 		this.number = 0;
@@ -33,6 +32,19 @@ class NumberGenerator {
 		let num = this.getRandomInt();
 		this.number = num;
 		this.display.innerText = num;
+
+		let done = true;
+		for (let i = 0; i < GAME_STATE.fields.length; i++) {
+			const f = GAME_STATE.fields[i];
+			if (f.value == num) return this.generate();
+			if (f.value == null) {
+				done = false;
+			}
+		}
+		if (done) {
+			winBox.style.display = "unset";
+			return;
+		}
 
 		let pa = false;
 		for (let i = 0; i < 20; i++) {
@@ -59,6 +71,7 @@ let GAME_STATE = {
 function initGame() {
 	GAME_STATE.fields = [];
 	lostBox.style.display = "none";
+	winBox.style.display = "none";
 
 	for (let i = 1; i <= 20; i++) {
 		let e = elem("field_" + i);
